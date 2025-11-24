@@ -14,5 +14,4 @@ erDiagram
     }
 
     users ||--o{ posts : has_many
-    }
-    ```
+```
