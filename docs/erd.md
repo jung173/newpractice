@@ -13,5 +13,5 @@ erDiagram
         int user_id FK
     }
 
-    users ||--o{ posts : has_many
+users ||--o{ posts : has_many
 ```
