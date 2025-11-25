@@ -1,23 +1,39 @@
 ```mermaid
 erDiagram
     users {
-        int id PK
-        string user_name
-        string email
-        string password
-        datetime created_at
-        datetime updated_at
+        id
+        user_name
+        email
+        password
+        created_at
+        updated_at
     }
 
     products {
-        int id PK
+        id
+        company_id
+        product_name
+        price
+        stock
+        comment
+        img_path
+        created_at
+        updated_at
     }
 
     sales {
-        int id PK
+        id
+        product_id
+        created_at
+        updated_at
     }
 
     companies {
-        int id PK
+        id
+        company_name
+        street_address
+        representative_name
+        created_at
+        updated_at
     }
 ```
