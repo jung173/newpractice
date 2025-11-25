@@ -1,7 +1,7 @@
 ```mermaid
 erDiagram
     users {
-        id pk 
+        id 
         user_name
         email
         password
@@ -10,14 +10,14 @@ erDiagram
     }
 
     products {
-        id PK
+        id
     }
 
     sales {
-        id PK
+        id
     }
 
     companies {
-        id PK
+        id
     }
 ```
