@@ -1,17 +1,18 @@
 ```mermaid
 erDiagram
-    "users" {
+    users {
         int id PK
-        string name
-        string email
     }
 
-    "posts" {
+    products {
         int id PK
-        string title
-        text body
-        int user_id FK
     }
 
-    "users" ||--o{ "posts" : has_many
+    sales {
+        int id PK
+    }
+
+    companies {
+        int id PK
+    }
 ```
