@@ -1,9 +1,12 @@
 ```mermaid
 erDiagram
     users {
-        PK id : int
-        name : string
-        email : string
+        PK id 
+        user_name
+        email
+        password
+        created_at
+        updated_at
     }
 
     products {
