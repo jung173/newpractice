@@ -3,12 +3,38 @@ erDiagram
 
 users {
     id
-    user_name
-    email   
+    username
+    email
+    password
+    createdat
+    updatedat
 }
 
 products {
     id
-    name
+    companyid
+    productname
+    price
+    stock
+    comment
+    img_path
+    createdat
+    updatedat
+}
+
+sales {
+    id
+    productid
+    createdat
+    updatedat
+}
+
+companies {
+    id
+    companyname
+    streetaddress
+    representativename
+    createdat
+    updatedat
 }
 ```
