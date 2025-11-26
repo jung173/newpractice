@@ -33,7 +33,6 @@ erDiagram
         company_name
         street_address
         representative_name
-        created_at
-        updated_at
+
     }
 ```
