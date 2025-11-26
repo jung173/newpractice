@@ -3,7 +3,7 @@ erDiagram
 
 users {
     id
-    name
+    username
 }
 
 products {
