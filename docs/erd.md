@@ -3,6 +3,7 @@ erDiagram
 
 users {
     id
+    name
     email
 }
 
