@@ -2,7 +2,7 @@
 erDiagram
 
 users {
-    id
+    id PK
     user_name
     email
     password
@@ -11,7 +11,7 @@ users {
 }
 
 products {
-    id
+    id PK
     company_id FK
     product_name
     price
@@ -23,7 +23,7 @@ products {
 }
 
 sales {
-    id
+    id PK
     product_id FK
     user_id FK
     created_at
@@ -31,7 +31,7 @@ sales {
 }
 
 companies {
-    id
+    id PK
     company_name
     street_address
     representative_name
