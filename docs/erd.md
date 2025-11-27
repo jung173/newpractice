@@ -38,5 +38,5 @@ companies {
     datetime updated_at
 }
 
-products ||--o{ sales
+products ||--o{ sales : ""
 ```
