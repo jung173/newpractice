@@ -37,4 +37,6 @@ companies {
     datetime created_at
     datetime updated_at
 }
+
+products ||--o{ sales
 ```
