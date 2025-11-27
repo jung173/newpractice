@@ -39,4 +39,5 @@ companies {
 }
 
 products ||--o{ sales : ""
+companies ||--o{ products : ""
 ```
