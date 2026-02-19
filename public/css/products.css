@@ -1,0 +1,649 @@
+/* =====================================================
+　　product.css
+
+　　[Index]
+　　1. Product Index Page
+　　2. Product Create Page
+　　3. Product Edit Page
+　　4. Product Show Page
+===================================================== */
+
+
+/* =====================================================
+　  1. Product Index Page（商品一覧）
+===================================================== */  
+
+    /* =========================
+        ベース設定
+        ========================= */
+
+    /* 画面中央に配置するコンテナ */
+    .product-index-container {
+        max-width: 900px;   /* 最大横幅 */
+        padding: 50px 40px; /* 内側余白 */
+        margin: 0 auto;     /* 左右中央寄せ */
+    }
+
+    /* スマホ用調整（上書き） */
+    @media screen and (max-width: 768px) {
+        .product-index-container {
+            padding: 20px;
+        }
+    }
+
+    /* =========================
+        タイトル
+        ========================= */
+
+    /* ページタイトル */
+    .product-index-container .page-title {
+        width: 900px;
+        font-weight: normal;    /* デフォルトの太字を解除 */
+        font-size: 40px;
+        margin: 0 auto 40px;    
+    }
+
+    /* =========================
+        検索フォーム
+        ========================= */
+
+    /* 検索フォーム全体 */
+    .product-index-container .search-form {
+        display: flex;       /* 横並び */
+        gap: 10px;           /* 要素間の間隔 */
+        align-items: center; /* 縦中央揃え */
+        margin-bottom: 50px;
+    }
+
+    /* 検索フォームの入力欄 */
+    .product-index-container .search-form input,
+    .product-index-container .search-form select {
+        padding: 10px 30px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 20px;
+        margin-right: 25px;
+    }
+
+    /* =========================
+        テーブル全体
+        ========================= */
+
+    .product-index-container .product-table {
+        border-collapse: collapse;      /* 枠線を重ねる */
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        border: 1.8px solid #040404ff;    /* ←一時的 */
+    }
+
+    /* ヘッダー・セル共通 */
+    .product-index-container .product-table th,
+    .product-index-container .product-table td {
+        border-bottom: 1px solid #999;
+        font-size: 20px;
+        text-align: center;
+        padding: 24px 12px;   /* ← 高さを調整 */
+        vertical-align: middle;
+    }
+
+    /* 偶数行の背景色を変更（縞模様） */
+    .product-index-container .product-table tr:nth-child(even) {
+        background-color: #e0e0e0;  /* ← 見本に寄せる */
+    }
+
+    /* =========================
+        画像
+        ========================= */
+
+    .product-index-container .product-img {
+        border-radius: 4px;
+    }
+
+    /* =========================
+        操作ボタンエリア
+        ========================= */
+
+    /* 操作列の中央揃え */
+    .product-index-container .action-cell {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    /* formの余白を消す */
+    .product-index-container .action-cell form {
+        margin: 0;
+    }
+
+    /* 詳細・削除ボタンの横並び */
+    .product-index-container .action-buttons {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* =========================
+        列幅調整
+        ========================= */
+
+    .product-index-container .col-id      { width: 60px; }
+    .product-index-container .col-img     { width: 130px; }
+    .product-index-container .col-name    { width: 180px; }
+    .product-index-container .col-price   { width: 100px; }
+    .product-index-container .col-stock   { width: 100px; }
+    .product-index-container .col-company { width: 180px; }
+    .product-index-container .col-action  { width: 180px; }
+
+    /* =========================
+        ボタン共通
+        ========================= */
+
+    .product-index-container .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 18px;
+        font-size: 18px;
+        line-height: 1;
+        border: 1px solid #ccc;
+        border-radius:6px;
+        cursor: pointer;
+        text-decoration: none;  /* 下線を消す */
+        font-weight: normal;    /* 太字解除 */
+    }
+
+    /* =========================
+        個別ボタン
+        ========================= */
+
+    /* 検索ボタン */
+    .product-index-container .btn-search {
+        padding: 10px 30px;
+        background-color: white;
+        border-radius: 6px;
+        font-size: 20px;
+    }
+
+    /* 新規登録ボタン */
+    .product-index-container .btn-create {
+        background-color:#FF9800;
+        color:black;
+        padding: 12px 12px;
+    }
+
+    /* 詳細ボタン */
+    .product-index-container .btn-detail {
+        background-color:#0ac1ff;
+        color:black;
+    }
+
+    /* 削除ボタン */
+    .product-index-container .btn-delete {
+        background-color:#f44336;
+        color:white;
+    }
+
+    .product-index-container .italic {
+        font-style: italic;
+    }
+
+
+
+/* =====================================================
+　　2. Product Create Page（商品新規登録）
+===================================================== */
+
+    /* =========================
+    　　ベース設定
+    　　========================= */
+
+    /* 画面中央に配置するメインコンテナ */
+    .product-create-container {
+        max-width: 780px;   /* 全体の最大横幅 */
+        padding: 50px;      /* 内側の余白 */
+        margin: 0 auto;     /* 左右中央寄せ */
+    }
+
+    /* スマホサイズ用の余白調整 */
+    @media screen and (max-width: 768px) {
+        .product-create-container {
+            padding: 20px;
+        }
+    }
+
+    /* =========================
+    　　タイトル
+    　　========================= */
+
+    /* 画面タイトル */
+    .product-create-container .page-title {
+        font-weight: normal; /* デフォルト太字を解除 */
+        font-size: 38px;     /* タイトルサイズ */
+        margin: 0;
+        margin-bottom: 60px; /* フォームとの間隔 */
+    }
+
+    /* =========================
+　　　  フォーム全体
+    　　========================= */
+
+    /* 入力フォーム全体の枠 */
+    .product-create-container .create-form {
+        font-size: 32px;                  /* ラベル基準サイズ */
+        border: 1.8px solid #040404ff;  /* 枠線 */
+        padding: 53px 65px;               /* 内側余白 */
+    }
+    
+    /* =========================
+    　　入力行（ラベル + 入力欄）
+    　　========================= */
+
+    /* 各入力行のレイアウト */
+    .product-create-container .form-group {
+        display: grid;
+        grid-template-columns: 200px 1fr; /* 左：ラベル / 右：入力欄 */
+        gap: 40px;                        /* 列同士の間隔 */
+        align-items: center;              /* 縦方向の中央揃え */
+        margin-bottom: 38px;              /* 各行の間隔 */
+    }
+
+    /* ラベルの共通スタイル */
+    .product-create-container .form-group label {
+        width: 200px;
+        text-align: left;
+        font-weight: 600;   /* 少し太字 */
+    }
+
+    /* 入力要素の共通スタイル */
+    .product-create-container .form-group input,
+    .product-create-container .form-group select,
+    .product-create-container .form-group textarea,
+    .product-create-container .form-group input[type="file"] {
+        flex: none;
+        padding: 10px 12px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    /* =========================
+    　　ファイル選択UI
+    　　========================= */
+
+    /* ファイルボタン用ラッパー */
+    .product-create-container .file-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* ← 左寄せ */
+        width: 500px;  /* 他のinputと幅を揃える */
+    }
+
+    /* 商品画像ラベルとファイル選択ボタンをセットで下げる */
+    .product-create-container .image-row {
+        margin-top: 50px;
+    }
+    
+    /* ファイル選択ボタン風ラベル */
+    .product-create-container .file-btn {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 25px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #d8d8d8;
+        font-weight: normal !important;  /* 太字を解除 */
+    }
+
+    /* ホバー時 */
+    .product-create-container .file-btn:hover {
+        background-color: #e0e0e0;
+    }
+
+    /* =========================
+    　　ボタンエリア
+    　　========================= */
+
+    /* 登録・戻るボタンの並び */
+    .product-create-container .form-buttons {
+        display: flex;
+        gap: 80px;  /* ボタン同士の間隔 */
+    }
+
+    /* 共通ボタン */
+    .product-create-container .btn {
+        margin-top: 100px;
+        padding: 8px 5px;
+        border-radius:6px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        color:black;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        width: 100px;        /* 横幅を揃える */
+        height: 48px;        /* 高さを揃える */
+    }
+    
+    /* 新規登録ボタン */
+    .product-create-container .btn-submit {
+        background-color:#FF9800;
+    }
+
+    /* 戻るボタン */
+    .product-create-container .btn-back {
+        background-color:#0ac1ff;
+    }
+
+    /* =========================
+        バリデーション関連
+        ========================= */
+
+    /* 必須マーク */
+    .product-create-container .required {
+        color: red;        /* 赤色 */
+        margin-left: 1px; /* 文字との間隔 */
+        font-size: 35px;  /* 少し大きめに表示 */
+    }
+
+    /* バリデーションエラー時の赤枠 */
+    .product-create-container .form-group .input-error {
+        border: 1.5px solid red !important; /* 通常の枠線を上書き */
+    }
+
+    .product-create-container .italic {
+        font-style: italic;
+    }
+
+
+
+/* =====================================================
+　　3. Product Edit Page（商品編集）
+===================================================== */
+
+    /* =========================
+    　　ベース設定
+    　　========================= */
+
+    /* 画面中央に配置するメインコンテナ */
+    .product-edit-container {
+        max-width: 780px;   /* 全体の最大横幅 */
+        padding: 50px;      /* 内側の余白 */
+        margin: 0 auto;     /* 左右中央寄せ */
+    }
+
+    /* スマホサイズ用の余白調整 */
+    @media screen and (max-width: 768px) {
+        .product-edit-container {
+            padding: 20px;
+        }
+    }
+
+    /* =========================
+    　　タイトル
+    　　========================= */
+
+    /* 画面タイトル */
+    .product-edit-container .page-title {
+        font-weight: normal; /* デフォルト太字を解除 */
+        font-size: 38px;     /* タイトルサイズ */
+        margin: 0;
+        margin-bottom: 60px; /* フォームとの間隔 */
+    }
+
+    /* =========================
+　　　  フォーム全体
+    　　========================= */
+
+    /* 入力フォーム全体の枠 */
+    .product-edit-container .edit-form {
+        font-size: 32px;                  /* ラベル基準サイズ */
+        border: 1.8px solid #040404ff;  /* 枠線 */
+        padding: 53px 65px;               /* 内側余白 */
+    }
+
+    /* =========================
+    　　入力行（ラベル + 入力欄）
+    　　========================= */
+
+    /* 各入力行のレイアウト */
+    .product-edit-container .form-group {
+        display: grid;
+        grid-template-columns: 200px 1fr; /* 左：ラベル / 右：入力欄 */
+        gap: 40px;                        /* 列同士の間隔 */
+        align-items: center;              /* 縦方向の中央揃え */
+        margin-bottom: 38px;              /* 各行の間隔 */
+    }
+
+    /* ラベルの共通スタイル */
+    .product-edit-container .form-group label {
+        width: 200px;
+        text-align: left;
+        font-weight: 600;   /* 少し太字 */
+    }
+
+    /* 入力要素の共通スタイル */
+    .product-edit-container .form-group input,
+    .product-edit-container .form-group select,
+    .product-edit-container .form-group textarea,
+    .product-edit-container .form-group input[type="file"] {
+        flex: none;
+        padding: 10px 12px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    /* =========================
+    　　ファイル選択UI
+    　　========================= */
+
+    .product-edit-container .image-area {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* ← 入力欄と同じ左位置 */
+        gap: 16px;
+    }
+
+    /* ファイルボタン用ラッパー */
+    .product-edit-container .file-wrapper {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    /* 商品画像行だけ縦揃えを上にする */
+    .product-edit-container .form-group.image-row {
+        align-items: flex-start;
+    }
+
+    /* 商品画像ラベルとファイル選択ボタンをセットで下げる */
+    .product-edit-container .image-row {
+        margin-top: 50px;
+    }
+    
+    /* ファイル選択ボタン風ラベル */
+    .product-edit-container .file-btn {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 25px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #d8d8d8;
+        font-weight: normal !important;  /* 太字を解除 */
+    }
+
+    /* ホバー時 */
+    .product-edit-container .file-btn:hover {
+        background-color: #e0e0e0;
+    }
+
+    /* =========================
+    　　ボタンエリア
+    　　========================= */
+
+    /* 更新・戻るボタンの並び */
+    .product-edit-container .form-buttons {
+        display: flex;
+        gap: 70px;  /* ボタン同士の間隔 */
+    }
+
+    /* 共通ボタン */
+    .product-edit-container .btn {
+        margin-top: 40px;
+        padding: 8px 5px;
+        border-radius:6px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        color:black;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        width: 100px;        /* 横幅を揃える */
+        height: 48px;        /* 高さを揃える */
+    }
+    
+    /* 更新ボタン */
+    .product-edit-container .btn-submit {
+        background-color:#FF9800;
+    }
+
+    /* 戻るボタン */
+    .product-edit-container .btn-back {
+        background-color:#0ac1ff;
+    }
+
+    /* =========================
+        バリデーション関連
+        ========================= */
+
+    /* 必須マーク */
+    .product-edit-container .required {
+        color: red;        /* 赤色 */
+        margin-left: 0px; /* 文字との間隔 */
+        font-size: 35px;  /* 少し大きめに表示 */
+    }
+
+    /* バリデーションエラー時の赤枠 */
+    .product-edit-container .form-group .input-error {
+        border: 1.5px solid red !important; /* 通常の枠線を上書き */
+    }
+
+    .product-edit-container .italic {
+        font-style: italic;
+    }
+
+
+/* =====================================================
+　　4. Product Show Page（商品詳細）
+===================================================== */ 
+
+    /* =========================
+    　　ベース設定
+    　　========================= */
+
+    /* 画面中央に配置するメインコンテナ */
+    .product-show-container {
+        max-width: 780px;   /* 全体の最大横幅 */
+        padding: 50px;      /* 内側の余白 */
+        margin: 0 auto;     /* 左右中央寄せ */
+    }
+
+    /* スマホサイズ用の余白調整 */
+    @media screen and (max-width: 768px) {
+        .product-show-container {
+            padding: 20px;
+        }
+    }
+
+    /* =========================
+    　　タイトル
+    　　========================= */
+
+    /* 画面タイトル */
+    .product-show-container .page-title {
+        font-weight: normal; /* デフォルト太字を解除 */
+        font-size: 38px;     /* タイトルサイズ */
+        margin: 0;
+        margin-bottom: 60px; /* フォームとの間隔 */
+    }
+
+    /* =========================
+　　　  フォーム全体
+    　　========================= */
+
+    /* 入力フォーム全体の枠 */
+    .product-show-container .show-form {
+        font-size: 32px;                  /* ラベル基準サイズ */
+        border: 1.8px solid #040404ff;  /* 枠線 */
+        padding: 53px 65px;               /* 内側余白 */
+    }
+
+    /* =========================
+    　　入力行（ラベル + 入力欄）
+    　　========================= */
+
+    /* 各入力行のレイアウト */
+    .product-show-container .form-group {
+        display: grid;
+        grid-template-columns: 200px 1fr; /* 左：ラベル / 右：入力欄 */
+        gap: 40px;                        /* 列同士の間隔 */
+        align-items: center;              /* 縦方向の中央揃え */
+        margin-bottom: 38px;              /* 各行の間隔 */
+    }
+
+    /* ラベルの共通スタイル */
+    .product-show-container .form-group label {
+        width: 200px;
+        text-align: left;
+        font-weight: 600;   /* 少し太字 */
+    }
+
+    /* =========================
+    　　ボタンエリア
+    　　========================= */
+
+    /* 編集・戻るボタンの並び */
+    .product-show-container .form-buttons {
+        display: flex;
+        gap: 40px;  /* ボタン同士の間隔 */
+    }
+
+    /* 共通ボタン */
+    .product-show-container .btn {
+        margin-top: 40px;
+        padding: 8px 5px;
+        border-radius:6px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        color:black;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        width: 100px;        /* 横幅を揃える */
+        height: 48px;        /* 高さを揃える */
+    }
+    
+    /* 編集ボタン */
+    .product-show-container .btn-next {
+        background-color:#FF9800;
+    }
+
+    /* 戻るボタン */
+    .product-show-container .btn-back {
+        background-color:#0ac1ff;
+    }
+
+    .product-show-container .italic {
+    font-style: italic;
+}
