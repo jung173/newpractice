@@ -6,6 +6,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- Vite（JS読み込み） --}}
+    @vite(['resources/js/app.js'])
+
     {{-- 商品画面用CSS --}}
     <link rel="stylesheet" href="{{ asset('css/products.css') }}">
 </head>

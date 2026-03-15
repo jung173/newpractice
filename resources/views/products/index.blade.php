@@ -8,8 +8,11 @@
     <!-- ページタイトル -->
     <h1 class="page-title">商品一覧画面</h1>
 
-    <!-- 検索フォーム -->
-    <form method="GET" action="{{ route('products.index') }}" class="search-form">
+    <!-- 非同期検索用フォーム -->
+    <form id="search-form"
+        method="GET"
+        action="{{ route('products.index') }}"
+        class="search-form">
 
         <!-- キーワード検索 -->
         <input type="text" name="keyword" placeholder="検索キーワード" value="{{ request('keyword') }}">
@@ -28,91 +31,29 @@
 
         <!-- 検索ボタン -->
         <button type="submit" class="btn btn-search">検索</button>
+
+        <!-- 価格検索 -->
+        <div class="search-range">
+            <label>価格</label>
+            <input type="number" name="price_min" placeholder="下限">
+            ～
+            <input type="number" name="price_max" placeholder="上限">
+        </div>
+        
+        <!-- 在庫検索 -->
+        <div class="search-range">
+            <label>在庫</label>
+            <input type="number" name="stock_min" placeholder="下限">
+            ～
+            <input type="number" name="stock_max" placeholder="上限">
+        </div>
+
     </form>
 
-
-    <!-- 商品一覧テーブル -->
-    <table class="product-table">
-
-        <!-- テーブルヘッダー -->
-        <tr class="table-header">
-            <th class="italic col-id">ID</th>
-            <th class="col-img">商品画像</th>
-            <th class="col-name">商品名</th>
-            <th class="col-price">価格</th>
-            <th class="col-stock">在庫数</th>
-            <th class="col-company">メーカー名</th>
-
-            <!-- 新規登録ボタン -->
-            <th class="col-action">
-                <a href="{{ route('products.create') }}"
-                    class="btn btn-create"
-                    >新規登録
-                </a>
-            </th>
-        </tr>
-
-        <!-- 商品一覧ループ -->
-        @foreach ($products as $product)
-        <tr>
-            <!-- ID -->
-            <td>{{ $product->id }}</td>
-
-            <!-- 画像 -->
-            <td>
-                @if ($product->img_path)
-                    <img class="product-img"
-                        src="{{ asset('storage/' . $product->img_path) }}"
-                        width="60">
-                @else
-                    画像なし
-                @endif
-            </td>
-
-            <!-- 商品名 -->
-            <td>{{ $product->product_name }}</td>
-
-            <!-- 価格 -->
-            <td>{{ number_format($product->price) }}円</td>
-
-            <!-- 在庫数 -->
-            <td>{{ $product->stock }}</td>
-
-            <!-- メーカー名 -->
-            <td>{{ $product->company->company_name }}</td>
-            
-            <!-- 操作ボタン -->
-            <td class="action-cell">
-                <div class="action-buttons">
-
-                    <!-- 詳細ボタン -->
-                    <a href="{{ route('products.show', $product->id) }}"
-                        class="btn btn-detail"
-                        >詳細
-                    </a>
-
-                    <!-- 削除ボタン -->
-                    <form action="{{ route('products.destroy', $product->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-delete"
-                                type="submit"
-                                onclick="return confirm('削除しますか？');"
-                            >削除
-                        </button>
-                    </form>
-                    
-                    <!-- 一時ログアウトボタン -->
-                    <!-- <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit">ログアウト</button>
-                    </form> -->
-
-                </div>
-            </td>
-        </tr>
-        @endforeach
-    </table>
+    <!-- 非同期で差し替える一覧エリア -->
+    <div id="product-list">
+        @include('products._list')
+    </div>
 </div>
 
 @endsection

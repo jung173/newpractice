@@ -30,6 +30,14 @@ class ProductSearchRequest extends FormRequest
                 'integer',   // 数値
                 Rule::exists('companies', 'id'),
             ], // companies.id に存在するか
+
+            // 価格
+            'price_min' => ['nullable', 'integer', 'min:0'],
+            'price_max' => ['nullable', 'integer', 'min:0'],
+
+            // 在庫
+            'stock_min' => ['nullable', 'integer', 'min:0'],
+            'stock_max' => ['nullable', 'integer', 'min:0'],
         ];
     }
 

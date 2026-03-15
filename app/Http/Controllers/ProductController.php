@@ -14,13 +14,17 @@ class ProductController extends Controller
 
     public function index(ProductSearchRequest $request) {
 
-        // 検索条件に基づいて商品一覧を取得（検索ロジックは Model に委譲）
+        // 検索条件に基づいて商品一覧を取得
         $products = Product::search($request)->get();
 
-        // メーカー一覧を取得（検索フォームのセレクトボックス用）
+        // 🔥 Ajaxの場合は一覧部分だけ返す
+        if ($request->ajax()) {
+            return view('products._list', compact('products'))->render();
+        }
+
+        // 通常アクセス時
         $companies = Company::listForSelect();
 
-        // 商品一覧画面へデータを渡して表示
         return view('products.index', compact('products', 'companies'));
     }
 
