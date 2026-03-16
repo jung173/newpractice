@@ -73,13 +73,13 @@ $(document).on('click', 'th[data-sort]', function() {
 });
 
 function loadProducts() {
+
+    let formData = $('#search-form').serialize();
+
     $.ajax({
         url: '/products',
         type: 'GET',
-        data: {
-            sort: currentSort,
-            direction: currentDirection
-        },
+        data: formData + '&sort=' + currentSort + '&direction=' + currentDirection,
         success: function(response) {
             $('#product-list').html(response);
             updateSortIcons();
